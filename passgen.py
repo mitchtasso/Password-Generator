@@ -28,7 +28,7 @@ def generatePass(length):
             gen = random.randint(0,len(all)-1)
             passwordStore.append(all[gen])
     
-    #Shuffles and 
+    #Shuffles and assigns to string
     random.shuffle(passwordStore)
     for x in range(0,length):
         password += passwordStore[x]
