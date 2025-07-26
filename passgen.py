@@ -45,4 +45,4 @@ number = st.number_input("Length of password (Min 8, Max 24)",min_value=8, max_v
 generate = st.button("Generate")
 
 if generate:
-    st.text(generatePass(number))
+    st.code(generatePass(number), language=None)
