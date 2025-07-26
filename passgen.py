@@ -37,10 +37,12 @@ def generatePass(length):
 
 
 #Frontend
-
 st.set_page_config(page_title="Password Generator", page_icon="logo.png")
-st.image("logo.png", width=100)
-st.title("Password Generator")
+logo, title = st.columns([1,5])
+with logo:
+    st.image("logo.png", width=100)
+with title:
+    st.title("Password Generator")
 number = st.number_input("Length of password (Min 8, Max 24)",min_value=8, max_value=24)
 generate = st.button("Generate")
 
