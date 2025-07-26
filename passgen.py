@@ -1,5 +1,6 @@
 import random
 import string
+import streamlit as st
 
 lowercase = string.ascii_lowercase
 uppercase = string.ascii_uppercase
@@ -32,17 +33,16 @@ def generatePass(length):
     random.shuffle(passwordStore)
     for x in range(0,length):
         password += passwordStore[x]
-    print(password)
+    return password
 
-if __name__ == "__main__":
-    
-    while(True):
-        print("Please enter the desired length for your password. (8-24 Characters)\n")
-        length = input("Length: ")
-        if int(length) >= 8 and int(length) <= 24:
-            break
-        else:
-            print("\nPlease enter a valid length.\n")
-            continue
-    
-    generatePass(int(length))
+
+#Frontend
+
+st.set_page_config(page_title="Password Generator", page_icon="logo.png")
+st.image("logo.png", width=100)
+st.title("Password Generator")
+number = st.number_input("Length of password (Min 8, Max 24)",min_value=8, max_value=24)
+generate = st.button("Generate")
+
+if generate:
+    st.text(generatePass(number))
